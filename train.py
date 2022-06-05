@@ -53,11 +53,11 @@ def parse_args(parser):
     Parse commandline arguments.
     """
 
-    parser.add_argument('-o', '--output', type=str, required=True,
+    parser.add_argument('-o', '--output', type=str, default='./output/',
                         help='Directory to save checkpoints')
     parser.add_argument('-d', '--dataset-path', type=str,
                         default='./', help='Path to dataset')
-    parser.add_argument('-m', '--model-name', type=str, default='', required=True,
+    parser.add_argument('-m', '--model-name', type=str, default='Model',
                         help='Model to train')
     parser.add_argument('--log-file', type=str, default='nvlog.json',
                         help='Filename for logging')
@@ -73,7 +73,7 @@ def parse_args(parser):
 
     # training
     training = parser.add_argument_group('training setup')
-    training.add_argument('--epochs', type=int, required=True,
+    training.add_argument('--epochs', type=int, default=1000,
                           help='Number of total epochs to run')
     training.add_argument('--epochs-per-checkpoint', type=int, default=50,
                           help='Number of epochs per checkpoint')
@@ -95,13 +95,13 @@ def parse_args(parser):
     optimization = parser.add_argument_group('optimization setup')
     optimization.add_argument(
         '--use-saved-learning-rate', default=False, type=bool)
-    optimization.add_argument('-lr', '--learning-rate', type=float, required=True,
+    optimization.add_argument('-lr', '--learning-rate', type=float, default=1e-3,
                               help='Learing rate')
     optimization.add_argument('--weight-decay', default=1e-6, type=float,
                               help='Weight decay')
     optimization.add_argument('--grad-clip-thresh', default=1.0, type=float,
                               help='Clip threshold for gradients')
-    optimization.add_argument('-bs', '--batch-size', type=int, required=True,
+    optimization.add_argument('-bs', '--batch-size', type=int, default=1,
                               help='Batch size per GPU')
     optimization.add_argument('--grad-clip', default=5.0, type=float,
                               help='Enables gradient clipping and sets maximum gradient norm value')
@@ -147,7 +147,7 @@ def parse_args(parser):
     distributed.add_argument('--dist-url', type=str, default='tcp://localhost:23456',
                              help='Url used to set up distributed training')
     distributed.add_argument('--group-name', type=str, default='group_name',
-                             required=False, help='Distributed group name')
+                             help='Distributed group name')
     distributed.add_argument('--dist-backend', default='nccl', type=str, choices={'nccl'},
                              help='Distributed run backend')
 

@@ -1,11 +1,25 @@
 {
+	"tacotron2": {
+		"model-name": "Tacotron2",
+		"output": "./output/",
+		"learning-rate": 1e-3,
+		"checkpoint-path": "nvidia_tacotron2pyt_fp16.pt",
+		"epochs": 1500,
+		"batch-size": 2,
+		"weight-decay": 1e-6,
+		"grad-clip-thresh": 1.0,
+		"cudnn-enabled": true,
+		"log-file": "./output/logs/nvlog.json",
+		"anneal-steps": [500, 100, 1500],
+		"anneal-factor": 0.1
+	},
     "audio": {
-	"max-wav-value": 32768.0,
-	"sampling-rate": 22050,
-	"filter-length": 1024,
-	"hop-length": 256,
-	"win-length": 1024,
-	"mel-fmin": 0.0,
-	"mel-fmax": 7000.0
+		"max-wav-value": 32768.0,
+		"sampling-rate": 22050,
+		"filter-length": 1024,
+		"hop-length": 256,
+		"win-length": 1024,
+		"mel-fmin": 0.0,
+		"mel-fmax": 7000.0
     }
 }
