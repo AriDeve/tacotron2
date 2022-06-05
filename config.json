@@ -4,7 +4,7 @@
 		"output": "./output/",
 		"learning-rate": 1e-3,
 		"checkpoint-path": "nvidia_tacotron2pyt_fp16.pt",
-		"epochs": 1500,
+		"epochs": 10000,
 		"batch-size": 2,
 		"weight-decay": 1e-6,
 		"grad-clip-thresh": 1.0,
