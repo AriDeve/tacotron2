@@ -251,6 +251,7 @@ def load_checkpoint(model, optimizer, scaler, epoch, filepath, local_rank):
         raise Exception("Model checkpoint must have either 'random_rng_state' or 'random_rng_states_all' key.")
     model.load_state_dict(checkpoint['state_dict'])
     optimizer.load_state_dict(checkpoint['optimizer'])
+    model.load_state_dict({k.replace('module.', ''): v for k, v in checkpoint['state_dict'].items()})
     scaler.load_state_dict(checkpoint['scaler'])
     return checkpoint['config']
 

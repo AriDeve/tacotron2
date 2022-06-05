@@ -9,7 +9,7 @@
 		"weight-decay": 1e-6,
 		"grad-clip-thresh": 1.0,
 		"cudnn-enabled": true,
-		"log-file": "logs/nvlog.json",
+		"log-file": "log/nvlog.json",
 		"anneal-steps": [500, 100, 1500],
 		"anneal-factor": 0.1,
 		"training-files": "input/filelists/filelist.txt",
