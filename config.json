@@ -9,9 +9,11 @@
 		"weight-decay": 1e-6,
 		"grad-clip-thresh": 1.0,
 		"cudnn-enabled": true,
-		"log-file": "./output/logs/nvlog.json",
+		"log-file": "logs/nvlog.json",
 		"anneal-steps": [500, 100, 1500],
-		"anneal-factor": 0.1
+		"anneal-factor": 0.1,
+		"training-files": "input/filelists/filelist.txt",
+		"validation-files": "input/filelists/filelist.txt"
 	},
     "audio": {
 		"max-wav-value": 32768.0,
