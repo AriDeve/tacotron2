@@ -216,6 +216,9 @@ def save_checkpoint(model, optimizer, scaler, epoch, config, output_dir,
             epoch, checkpoint_path))
         torch.save(checkpoint, checkpoint_path)
 
+        drive_path = os.path.join("/drive/MyDrive/checkpoints", checkpoint_filename)
+        torch.save(checkpoint, drive_path)
+
         symlink_src = checkpoint_filename
         symlink_dst = os.path.join(
             output_dir, "checkpoint_{}_last.pt".format(model_name))
